@@ -4,35 +4,35 @@ const colors = require ('colors');
 const preguntas = [{
     type: 'list',
     name: 'opcion',
-    message: '¿Qué desea hacer?',
+    message: 'What would you like to do?',
     choices: [
         {
             value: '1',
-            name: `${'1'.yellow} Crear tarea`
+            name: `${'1'.yellow} Add item`
         }, 
         {
             value: '2',
-            name: `${'2'.yellow} Listar tareas`
+            name: `${'2'.yellow} Peek shopping list`
         }, 
         {
             value: '3',
-            name: `${'3'.yellow} Listar tareas completadas`
+            name: `${'3'.yellow} List products on cart`
         },
         {
             value: '4',
-            name: `${'4'.yellow} Listar tareas pendientes`
+            name: `${'4'.yellow} List pending products`
         },
         {
             value: '5',
-            name: `${'5'.yellow} Completar tareas`
+            name: `${'5'.yellow} Add product to cart`
         },
         {
             value: '6',
-            name: `${'6'.yellow} Borrar tareas`
+            name: `${'6'.yellow} Delete product`
         },
         {
             value: '0',
-            name: `${'0'.yellow} Salir`
+            name: `${'0'.yellow} Exit`
         }
     ]
 }];
@@ -40,7 +40,7 @@ const preguntas = [{
 const enter = [{
     type: 'input',
         name: 'enter',
-message: colors.cyan(`\nPresione ${'ENTER'.yellow} para continuar`)
+message: colors.cyan(`\nPress ${'ENTER'.yellow} to continue`)
 }];
 
 const inquirerMenu = async () => {
@@ -48,7 +48,7 @@ const inquirerMenu = async () => {
     console.clear();
    
     console.log(colors.cyan('============================'));
-    console.log(colors.yellow('   Seleccione una opcion'))
+    console.log(colors.yellow('    Select an option'))
     console.log(colors.cyan('============================\n'));
 
     const {opcion} = await inquirer.prompt(preguntas);
@@ -71,7 +71,7 @@ const leerInput = async () => {
             message: 'Descripcion:',
             validate(value) {
                 if(value.length === 0) {
-                    return 'Por favor, ingrese un valor.';
+                    return 'Please, write something';
                 }
                 return true;
             }
@@ -96,13 +96,13 @@ const listadoTareasBorrar = async(tareas) => {
 
     choices.unshift({
         value: '0',
-        name: '0.'.red + ' Cancelar' 
+        name: '0.'.red + ' Cancel' 
     });
 
     const preguntas = [{
         type: 'list',
         name: 'id',
-        message: 'Borrar',
+        message: 'Delete',
         choices
     }]
 
@@ -137,7 +137,7 @@ const MostrarListadoChecklist = async(tareas = []) => {
     const pregunta = [{
         type: 'checkbox',
         name: 'ids',
-        message: 'Selecciones',
+        message: 'Selected',
         choices
     }]
 

@@ -50,7 +50,7 @@ class Tareas {
 
             const idx = `${i+1}.`.cyan;
             const {desc, completadoEn} = tarea;
-            const estado = (completadoEn) ? 'Completada'.green : 'Pendiente'.red;
+            const estado = (completadoEn) ? 'On cart'.green : 'Pending'.red;
 
             this._listado[tarea.id] = tarea;
             console.log(`${idx} ${desc} :: ${estado}`);
@@ -78,7 +78,7 @@ class Tareas {
         this.listadoArr.forEach((tarea) => {
             if(tarea.completadoEn==null){
                 i++;
-                console.log( `${Colors.cyan(i)}. ${tarea.desc} :: ${Colors.red('Pendiente')}` );
+                console.log( `${Colors.cyan(i)}. ${tarea.desc} :: ${Colors.red('Pending')}` );
             }
         });
     }
